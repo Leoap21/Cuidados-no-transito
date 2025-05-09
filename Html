@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trânsito Seguro - Previna Acidentes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .stats-card {
+            transition: all 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .tip-card {
+            transition: all 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            transform: scale(1.03);
+        }
+        
+        #quiz-container {
+            transition: all 0.5s ease;
+        }
+        
+        .road-sign {
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-car-side text-3xl text-blue-600 mr-2"></i>
+                <h1 class="text-2xl font-bold text-gray-800">Trânsito<span class="text-blue-600">Seguro</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#dicas" class="text-gray-700 hover:text-blue-600 font-medium">Dicas</a>
+                <a href="#estatisticas" class="text-gray-700 hover:text-blue-600 font-medium">Estatísticas</a>
+                <a href="#sinais" class="text-gray-700 hover:text-blue-600 font-medium">Sinais</a>
+                <a href="#quiz" class="text-gray-700 hover:text-blue-600 font-medium">Quiz</a>
+                <a href="#contato" class="text-gray-700 hover:text-blue-600 font-medium">Contato</a>
+            </nav>
+            <button class="md:hidden text-gray-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Previna Acidentes no Trânsito</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Aprenda as melhores práticas para manter você e sua família seguros nas ruas e estradas.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#dicas" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                    Comece a aprender
+                </a>
+                <a href="#quiz" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                    Teste seu conhecimento
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="estatisticas" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Estatísticas Alarmantes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="stats-card bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="text-5xl text-red-500 mb-4">
+                        <i class="fas fa-car-crash"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-gray-800">+45 mil</h3>
+                    <p class="text-gray-600">Mortes por ano no trânsito brasileiro</p>
+                    <div class="mt-4 h-1 bg-red-500 rounded-full w-3/4 mx-auto"></div>
+                </div>
+                
+                <div class="stats-card bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="text-5xl text-yellow-500 mb-4">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-gray-800">94%</h3>
+                    <p class="text-gray-600">Dos acidentes envolvem distração com celular</p>
+                    <div class="mt-4 h-1 bg-yellow-500 rounded-full w-3/4 mx-auto"></div>
+                </div>
+                
+                <div class="stats-card bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="text-5xl text-blue-500 mb-4">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-gray-800">30%</h3>
+                    <p class="text-gray-600">Dos acidentes fatais envolvem álcool</p>
+                    <div class="mt-4 h-1 bg-blue-500 rounded-full w-3/4 mx-auto"></div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white p-6 rounded-xl shadow-md">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">90% dos acidentes podem ser evitados!</h3>
+                        <p class="text-gray-600 mb-4">A maioria dos acidentes de trânsito são causados por falhas humanas que poderiam ser evitadas com comportamentos mais seguros.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-4">
+                            <div class="bg-green-500 h-4 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Acidente evitável" class="rounded-lg shadow-md w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="dicas" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Dicas para um Trânsito Mais Seguro</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tip 1 -->
+                <div class="tip-card bg-blue-50 p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-mobile-alt text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Celular no Modo Dirija</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Ative o modo "Não Perturbe" ou "Dirija" no seu smartphone para evitar distrações com notificações.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-blue-600 font-medium">Dica #01</span>
+                        <button class="text-blue-600 hover:text-blue-800">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tip 2 -->
+                <div class="tip-card bg-green-50 p-6 rounded-xl shadow-md border-l-4 border-green-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-child text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Cinto de Segurança</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Todos os ocupantes do veículo devem usar cinto, inclusive no banco traseiro. Ele reduz em 50% o risco de morte.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-green-600 font-medium">Dica #02</span>
+                        <button class="text-green-600 hover:text-green-800">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tip 3 -->
+                <div class="tip-card bg-yellow-50 p-6 rounded-xl shadow-md border-l-4 border-yellow-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-tachometer-alt text-yellow-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Respeite os Limites</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">A velocidade deve ser compatível com as condições da via, trânsito e clima. Reduza em áreas escolares e hospitalares.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-yellow-600 font-medium">Dica #03</span>
+                        <button class="text-yellow-600 hover:text-yellow-800">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tip 4 -->
+                <div class="tip-card bg-red-50 p-6 rounded-xl shadow-md border-l-4 border-red-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-glass-whiskey text-red-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Álcool e Direção</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Se beber, não dirija. Use transporte público, táxi ou designe um motorista que não tenha consumido álcool.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-red-600 font-medium">Dica #04</span>
+                        <button class="text-red-600 hover:text-red-800">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tip 5 -->
+                <div class="tip-card bg-purple-50 p-6 rounded-xl shadow-md border-l-4 border-purple-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-motorcycle text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Motociclistas</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Use sempre capacete fechado e viseira transparente. Mantenha distância segura e evise o ponto cego dos veículos.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-purple-600 font-medium">Dica #05</span>
+                        <button class="text-purple-600 hover:text-purple-800">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tip 6 -->
+                <div class="tip-card bg-indigo-50 p-6 rounded-xl shadow-md border-l-4 border-indigo-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-bed text-indigo-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Cansaço e Sono</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Pare a cada 2 horas ou 200km em viagens longas. Sinais de sono incluem bocejos frequentes e dificuldade em focar.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-indigo-600 font-medium">Dica #06</span>
+                        <button class="text-indigo-600 hover:text-indigo-800">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gradient-to-r from-blue-500 to-blue-600 text-white p-8 rounded-xl shadow-lg">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/3 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold mb-4">Baixe nosso Guia Completo de Prevenção</h3>
+                        <p class="mb-4">Receba gratuitamente um e-book com todas as dicas e informações essenciais para você e sua família.</p>
+                        <form class="flex flex-col sm:flex-row gap-3">
+                            <input type="email" placeholder="Seu melhor e-mail" class="px-4 py-2 rounded-lg text-gray-800 flex-grow">
+                            <button class="bg-white text-blue-600 font-bold px-6 py-2 rounded-lg hover:bg-gray-100 transition">
+                                Baixar Guia
+                            </button>
+                        </form>
+                    </div>
+                    <div class="md:w-1/3 text-center">
+                        <i class="fas fa-book-open text-6xl opacity-80"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Road Signs Section -->
+    <section id="sinais" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Sinais de Trânsito Essenciais</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Sign 1 -->
+                <div class="bg-white p-4 rounded-xl shadow-md text-center">
+                    <div class="road-sign bg-red-500 text-white text-2xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                        PARE
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-1">Placa de Parada</h3>
+                    <p class="text-sm text-gray-600">Obriga a parada completa do veículo</p>
+                </div>
+                
+                <!-- Sign 2 -->
+                <div class="bg-white p-4 rounded-xl shadow-md text-center">
+                    <div class="road-sign bg-red-600 text-white text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                        60
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-1">Limite de Velocidade</h3>
+                    <p class="text-sm text-gray-600">Velocidade máxima permitida</p>
+                </div>
+                
+                <!-- Sign 3 -->
+                <div class="bg-white p-4 rounded-xl shadow-md text-center">
+                    <div class="road-sign bg-yellow-500 text-black text-xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-1">Atenção</h3>
+                    <p class="text-sm text-gray-600">Área de perigo à frente</p>
+                </div>
+                
+                <!-- Sign 4 -->
+                <div class="bg-white p-4 rounded-xl shadow-md text-center">
+                    <div class="road-sign bg-blue-500 text-white text-xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-1">Mão Única</h3>
+                    <p class="text-sm text-gray-600">Sentido único de circulação</p>
+                </div>
+                
+                <!-- Sign 5 -->
+                <div class="bg-white p-4 rounded-xl shadow-md text-center">
+                    <div class="road-sign bg-white border-4 border-red-500 text-red-500 text-2xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-1">Proibido Estacionar</h3>
+                    <p class="text-sm text-gray-600">Não é permitido estacionar</p>
+                </div>
+                
+                <!-- Sign 6 -->
+                <div class="bg-white p-4 rounded-xl shadow-md text-center">
+                    <div class="road-sign bg-green-500 text-white text-xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-1">Serviço Hospitalar</h3>
+                    <p class="text-sm text-gray-600">Indica proximidade de hospital</p>
+                </div>
+                
+                <!-- Sign 7 -->
+                <div class="bg-white p-4 rounded-xl shadow-md text-center">
+                    <div class="road-sign bg-yellow-500 text-black text-xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-1">Área Escolar</h3>
+                    <p class="text-sm text-gray-600">Reduza a velocidade</p>
+                </div>
+                
+                <!-- Sign 8 -->
+                <div class="bg-white p-4 rounded-xl shadow-md text-center">
+                    <div class="road-sign bg-white border-4 border-red-500 text-red-500 text-xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-1">Proibido Veículos</h3>
+                    <p class="text-sm text-gray-600">Trânsito proibido de veículos</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white p-6 rounded-xl shadow-md">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Por que os sinais são importantes?</h3>
+                        <p class="text-gray-600 mb-4">Os sinais de trânsito são a linguagem universal das vias. Eles orientam, alertam e regulam o fluxo de veículos e pedestres, prevenindo acidentes e garantindo a segurança de todos.</p>
+                        <p class="text-gray-600">Conhecer e respeitar os sinais é fundamental para um trânsito mais seguro e organizado.</p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1584727638090-2d4570c123b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sinais de trânsito" class="rounded-lg shadow-md w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Teste Seu Conhecimento</h2>
+            
+            <div id="quiz-container" class="max-w-3xl mx-auto bg-white text-gray-800 p-8 rounded-xl shadow-lg">
+                <div id="quiz-intro" class="text-center">
+                    <i class="fas fa-question-circle text-6xl text-blue-500 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">Quiz de Segurança no Trânsito</h3>
+                    <p class="mb-6">Responda 5 perguntas para testar seu conhecimento sobre prevenção de acidentes.</p>
+                    <button id="start-quiz" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition">
+                        Começar Quiz
+                    </button>
+                </div>
+                
+                <div id="quiz-questions" class="hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <div id="progress-bar" class="bg-gray-200 h-2 rounded-full w-full">
+                            <div id="progress" class="bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                        <span id="progress-text" class="ml-4 font-bold">0/5</span>
+                    </div>
+                    
+                    <h3 id="question" class="text-xl font-bold mb-6"></h3>
+                    
+                    <div id="options" class="space-y-3 mb-8"></div>
+                    
+                    <div id="feedback" class="hidden mb-6 p-4 rounded-lg"></div>
+                    
+                    <button id="next-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition hidden">
+                        Próxima Pergunta
+                    </button>
+                </div>
+                
+                <div id="quiz-results" class="hidden text-center">
+                    <i id="result-icon" class="fas text-6xl mb-6"></i>
+                    <h3 id="result-title" class="text-2xl font-bold mb-4"></h3>
+                    <p id="result-message" class="mb-6"></p>
+                    <p id="score" class="text-xl font-bold mb-6"></p>
+                    <button id="restart-quiz" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition">
+                        Fazer Novamente
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Fale Conosco</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Seu Nome</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Seu E-mail</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Assunto</label>
+                            <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Selecione um assunto</option>
+                                <option value="dúvida">Dúvida</option>
+                                <option value="sugestão">Sugestão</option>
+                                <option value="parceria">Parceria</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Sua Mensagem</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition w-full">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="md:w-1/2 bg-gray-100 p-8 rounded-xl">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">Outras Formas de Contato</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">E-mail</h4>
+                                <p class="text-gray-600">contato@transitoseguro.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Telefone</h4>
+                                <p class="text-gray-600">(11) 1234-5678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Endereço</h4>
+                                <p class="text-gray-600">Av. Paulista, 1000 - São Paulo/SP</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold text-gray-800 mb-4">Siga-nos nas Redes Sociais</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-car-side text-3xl text-blue-400 mr-2"></i>
+                        <h3 class="text-2xl font-bold">Trânsito<span class="text-blue-400">Seguro</span></h3>
+                    </div>
+                    <p class="text-gray-400">Promovendo a segurança no trânsito através da educação e conscientização.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Links Úteis</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Política de Privacidade</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Termos de Uso</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Perguntas Frequentes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Nossas Campanhas</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Álcool e Direção</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Celular no Trânsito</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cinto de Segurança</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Respeito ao Pedestre</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Assine para receber dicas e novidades sobre segurança no trânsito.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Seu e-mail" class="px-4 py-2 rounded-l-lg text-gray-800 w-full">
+                        <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 TrânsitoSeguro. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Quiz Data
+        const quizData = [
+            {
+                question: "Qual é a principal causa de acidentes de trânsito no Brasil?",
+                options: [
+                    "Falta de sinalização",
+                    "Excesso de velocidade",
+                    "Falta de manutenção dos veículos",
+                    "Condições climáticas"
+                ],
+                correct: 1,
+                explanation: "O excesso de velocidade é a principal causa de acidentes, pois reduz o tempo de reação do motorista e aumenta a gravidade dos acidentes."
+            },
+            {
+                question: "Qual a distância mínima recomendada entre veículos em movimento?",
+                options: [
+                    "2 segundos",
+                    "5 segundos",
+                    "10 segundos",
+                    "Não há recomendação"
+                ],
+                correct: 0,
+                explanation: "A regra dos 2 segundos é a distância mínima segura. Em condições adversas, deve ser aumentada."
+            },
+            {
+                question: "O que fazer ao se deparar com um acidente de trânsito?",
+                options: [
+                    "Parar imediatamente para ajudar",
+                    "Sinalizar o local e chamar socorro",
+                    "Tirar fotos para compartilhar",
+                    "Continuar dirigindo para não atrapalhar"
+                ],
+                correct: 1,
+                explanation: "É importante sinalizar o local para evitar novos acidentes e acionar os serviços de emergência (193 ou 192)."
+            },
+            {
+                question: "Qual a porcentagem de acidentes que poderiam ser evitados com medidas simples?",
+                options: [
+                    "30%",
+                    "50%",
+                    "70%",
+                    "90%"
+                ],
+                correct: 3,
+                explanation: "Estudos mostram que 90% dos acidentes são causados por falhas humanas e poderiam ser evitados com comportamentos mais seguros."
+            },
+            {
+                question: "Qual desses itens NÃO deve ser verificado antes de uma viagem longa?",
+                options: [
+                    "Nível de óleo do motor",
+                    "Pressão dos pneus",
+                    "Cor do veículo",
+                    "Funcionamento dos faróis"
+                ],
+                correct: 2,
+                explanation: "A cor do veículo não interfere na segurança. Óleo, pneus e faróis são itens essenciais para verificar antes de viajar."
+            }
+        ];
+
+        // Quiz Variables
+        let currentQuestion = 0;
+        let score = 0;
+        let quizStarted = false;
+
+        // DOM Elements
+        const quizIntro = document.getElementById('quiz-intro');
+        const quizQuestions = document.getElementById('quiz-questions');
+        const quizResults = document.getElementById('quiz-results');
+        const startQuizBtn = document.getElementById('start-quiz');
+        const nextBtn = document.getElementById('next-btn');
+        const restartQuizBtn = document.getElementById('restart-quiz');
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const feedbackElement = document.getElementById('feedback');
+        const progressElement = document.getElementById('progress');
+        const progressText = document.getElementById('progress-text');
+        const resultTitle = document.getElementById('result-title');
+        const resultMessage = document.getElementById('result-message');
+        const resultIcon = document.getElementById('result-icon');
+        const scoreElement = document.getElementById('score');
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        // Start Quiz
+        startQuizBtn.addEventListener('click', () => {
+            quizIntro.classList.add('hidden');
+            quizQuestions.classList.remove('hidden');
+            loadQuestion();
+        });
+
+        // Load Question
+        function loadQuestion() {
+            const question = quizData[currentQuestion];
+            questionElement.textContent = question.question;
+            
+            // Clear previous options
+            optionsElement.innerHTML = '';
+            
+            // Add new options
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.classList.add('w-full', 'text-left', 'p-4', 'border', 'border-gray-300', 'rounded-lg', 'hover:bg-gray-100', 'transition');
+                button.textContent = option;
+                button.addEventListener('click', () => selectAnswer(index));
+                optionsElement.appendChild(button);
+            });
+            
+            // Update progress
+            progressElement.style.width = `${(currentQuestion / quizData.length) * 100}%`;
+            progressText.textContent = `${currentQuestion}/${quizData.length}`;
+            
+            // Hide next button and feedback
+            nextBtn.classList.add('hidden');
+            feedbackElement.classList.add('hidden');
+        }
+
+        // Select Answer
+        function selectAnswer(selectedIndex) {
+            const question = quizData[currentQuestion];
+            const optionButtons = optionsElement.querySelectorAll('button');
+            
+            // Disable all buttons
+            optionButtons.forEach(button => {
+                button.disabled = true;
+            });
+            
+            // Check if answer is correct
+            if (selectedIndex === question.correct) {
+                optionButtons[selectedIndex].classList.add('bg-green-100', 'border-green-500');
+                feedbackElement.classList.remove('hidden');
+                feedbackElement.classList.remove('bg-red-100', 'border-red-500', 'text-red-700');
+                feedbackElement.classList.add('bg-green-100', 'border-green-500', 'text-green-700');
+                feedbackElement.textContent = "Correto! " + question.explanation;
+                score++;
+            } else {
+                optionButtons[selectedIndex].classList.add('bg-red-100', 'border-red-500');
+                optionButtons[question.correct].classList.add('bg-green-100', 'border-green-500');
+                feedbackElement.classList.remove('hidden');
+                feedbackElement.classList.remove('bg-green-100', 'border-green-500', 'text-green-700');
+                feedbackElement.classList.add('bg-red-100', 'border-red-500', 'text-red-700');
+                feedbackElement.textContent = "Incorreto. " + question.explanation;
+            }
+            
+            // Show next button if not last question
+            if (currentQuestion < quizData.length - 1) {
+                nextBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.add('hidden');
+                setTimeout(showResults, 1500);
+            }
+        }
+
+        // Next Question
+        nextBtn.addEventListener('click', () => {
+            currentQuestion++;
+            loadQuestion();
+        });
+
+        // Show Results
+        function showResults() {
+            quizQuestions.classList.add('hidden');
+            quizResults.classList.remove('hidden');
+            
+            const percentage = Math.round((score / quizData.length) * 100);
+            
+            if (percentage >= 80) {
+                resultTitle.textContent = "Excelente!";
+                resultMessage.textContent = "Você demonstrou um ótimo conhecimento sobre segurança no trânsito!";
+                resultIcon.classList.add('fa-check-circle', 'text-green-500');
+            } else if (percentage >= 50) {
+                resultTitle.textContent = "Bom trabalho!";
+                resultMessage.textContent = "Você sabe bastante, mas ainda pode aprender mais sobre segurança no trânsito.";
+                resultIcon.classList.add('fa-thumbs-up', 'text-blue-500');
+            } else {
+                resultTitle.textContent = "Pode melhorar!";
+                resultMessage.textContent = "Recomendamos que você revise nossas dicas para aumentar seu conhecimento sobre segurança no trânsito.";
+                resultIcon.classList.add('fa-exclamation-triangle', 'text-yellow-500');
+            }
+            
+            scoreElement.textContent = `Você acertou ${score} de ${quizData.length} perguntas (${percentage}%)`;
+        }
+
+        // Restart Quiz
+        restartQuizBtn.addEventListener('click', () => {
+            currentQuestion = 0;
+            score = 0;
+            quizResults.classList.add('hidden');
+            quizQuestions.classList.remove('hidden');
+            loadQuestion();
+        });
+
+        // Back to Top Button
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle (simplified for this example)
+        document.querySelector('.md\\:hidden').addEventListener('click', () => {
+            alert('Menu mobile seria implementado aqui em uma versão completa.');
+        });
+    </script>
+</body>
+</html>
